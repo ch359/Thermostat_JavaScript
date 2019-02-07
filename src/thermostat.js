@@ -4,7 +4,7 @@ function Thermostat(){
   this._temperature = 20;
   this._minimumTemp = 10;
   this._powerSavingOn = true;
-};
+}
 
 Thermostat.prototype.maximumTemperature = function(){
   if(this._powerSavingOn){
@@ -18,7 +18,7 @@ Thermostat.prototype.temperature = function(){
 };
 
 Thermostat.prototype.up = function(temp){
-  var newTemp = this._temperature + temp;
+  let newTemp = this._temperature + temp;
 
   if(newTemp >= this.maximumTemperature()){
     this._temperature = this.maximumTemperature();
@@ -28,8 +28,8 @@ Thermostat.prototype.up = function(temp){
 };
 
 Thermostat.prototype.down = function(temp){
-  if(this._temperature - temp < 10){
-    this._temperature = 10;
+  if(this._temperature - temp < this._minimumTemp){
+    this._temperature = this._minimumTemp;
   } else{
   this._temperature -= temp;
   }
