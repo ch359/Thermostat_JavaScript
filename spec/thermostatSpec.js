@@ -33,4 +33,12 @@ describe ('Thermostat', function(){
       expect(thermostat.temperature()).toEqual(25);
   });
 
+  it ('cannot set temperature above 35 if power saving is off', function(){
+    thermostat._powerSavingOn = false;
+    thermostat.up(10);
+    expect(thermostat.temperature()).toEqual(30)
+    thermostat.up(10);
+    expect(thermostat.temperature()).toEqual(35)
+  })
+
 });
