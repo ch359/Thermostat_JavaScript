@@ -6,6 +6,13 @@ function Thermostat(){
   this._powerSavingOn = true;
 };
 
+Thermostat.prototype.maximumTemperature = function(){
+  if(this._powerSavingOn){
+    return 25;
+  }
+  return 35;
+};
+
 Thermostat.prototype.temperature = function(){
   return this._temperature;
 };
@@ -13,12 +20,8 @@ Thermostat.prototype.temperature = function(){
 Thermostat.prototype.up = function(temp){
   var newTemp = this._temperature + temp;
 
-  if(this._powerSavingOn){
-    if(newTemp > 25){
-      this._temperature = 25;
-    }else{
-      this._temperature = newTemp;
-    }
+  if(newTemp >= this.maximumTemperature()){
+    this._temperature = this.maximumTemperature();
   }else{
     this._temperature = newTemp;
   }
