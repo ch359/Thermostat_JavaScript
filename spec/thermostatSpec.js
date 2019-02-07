@@ -46,4 +46,13 @@ describe ('Thermostat', function(){
     thermostat.reset();
     expect(thermostat.temperature()).toEqual(20);
   });
+
+  it('can report its usage', function() {
+    expect(thermostat.usage()).toEqual('medium-usage');
+    thermostat.down(10);
+    expect(thermostat.usage()).toEqual('low-usage');
+    thermostat._powerSavingOn = false;
+    thermostat.up(20);
+    expect(thermostat.usage()).toEqual('high-usage');
+  });
 });
