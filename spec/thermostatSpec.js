@@ -22,4 +22,9 @@ describe ('Thermostat', function(){
     expect(thermostat.temperature()).toEqual(10);
   });
 
+  it('cannot be set lower than ten', function(){
+    thermostat.down(15);
+    expect(thermostat.temperature()).toEqual(10);
+  });
+
 });
