@@ -13,8 +13,8 @@ describe ('Thermostat', function(){
   });
 
   it('can raise temperature', function(){
-    thermostat.up(10);
-    expect(thermostat.temperature()).toEqual(30);
+    thermostat.up(1);
+    expect(thermostat.temperature()).toEqual(21);
   });
 
   it('can lower temperature', function(){
@@ -25,6 +25,12 @@ describe ('Thermostat', function(){
   it('cannot be set lower than ten', function(){
     thermostat.down(15);
     expect(thermostat.temperature()).toEqual(10);
+  });
+
+  it('cannot set temperature above 25 if power saving is on', function(){
+      thermostat._powerSavingOn = true;
+      thermostat.up(10);
+      expect(thermostat.temperature()).toEqual(25);
   });
 
 });
