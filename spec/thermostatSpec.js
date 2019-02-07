@@ -28,13 +28,13 @@ describe ('Thermostat', function(){
   });
 
   it('cannot set temperature above 25 if power saving is on', function(){
-      thermostat._powerSavingOn = true;
+      thermostat._isPowerSaving = true;
       thermostat.up(10);
       expect(thermostat.temperature()).toEqual(25);
   });
 
   it ('cannot set temperature above 35 if power saving is off', function(){
-    thermostat._powerSavingOn = false;
+    thermostat._isPowerSaving = false;
     thermostat.up(10);
     expect(thermostat.temperature()).toEqual(30);
     thermostat.up(10);
@@ -51,7 +51,7 @@ describe ('Thermostat', function(){
     expect(thermostat.usage()).toEqual('medium-usage');
     thermostat.down(10);
     expect(thermostat.usage()).toEqual('low-usage');
-    thermostat._powerSavingOn = false;
+    thermostat._isPowerSaving = false;
     thermostat.up(20);
     expect(thermostat.usage()).toEqual('high-usage');
   });

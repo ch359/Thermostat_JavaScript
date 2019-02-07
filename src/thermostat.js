@@ -3,12 +3,12 @@
 function Thermostat(){
   this._temperature = 20;
   this._minimumTemp = 10;
-  this._powerSavingOn = true;
+  this._isPowerSaving = true;
   this._resetTemperature = 20;
 }
 
 Thermostat.prototype.maximumTemperature = function(){
-  if(this._powerSavingOn){
+  if(this._isPowerSaving){
     return 25;
   }
   return 35;
