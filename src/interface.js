@@ -30,8 +30,13 @@ $(document).ready(function() {
         updatePowerSaving();
     });
 
-
-
+    $.getJSON( 'http://api.openweathermap.org/data/2.5/weather', {
+        q: 'London',
+        units: 'metric',
+        APPID: '9ffd6ea68429e495554bbb505107a4d9'
+    }, function(data) {
+        $('#current_temperature').text(data.main.temp);
+    });
 });
 
 function updateTemperature() {
