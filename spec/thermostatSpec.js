@@ -55,4 +55,16 @@ describe ('Thermostat', function(){
     thermostat.up(20);
     expect(thermostat.usage()).toEqual('high-usage');
   });
+
+  it('can turn powersaving off', function() {
+    thermostat.powerSavingOff();
+    expect(thermostat._isPowerSaving).toBe(false);
+  });
+
+  it('can turn powersaving on', function() {
+    thermostat.powerSavingOff();
+    expect(thermostat._isPowerSaving).toBe(false);
+    thermostat.powerSavingOn();
+    expect(thermostat._isPowerSaving).toBe(true);
+  })
 });

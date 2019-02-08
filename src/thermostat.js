@@ -42,6 +42,14 @@ Thermostat.prototype.reset = function() {
   this._temperature = this._resetTemperature;
 };
 
+Thermostat.prototype.powerSavingOff = function() {
+  this._isPowerSaving = false;
+};
+
+Thermostat.prototype.powerSavingOn = function() {
+  this._isPowerSaving = true;
+};
+
 Thermostat.prototype.usage = function() {
   if(this._temperature < 18) {
     return 'low-usage'
