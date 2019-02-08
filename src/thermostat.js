@@ -48,6 +48,8 @@ Thermostat.prototype.powerSavingOff = function() {
 
 Thermostat.prototype.powerSavingOn = function() {
   this._isPowerSaving = true;
+  if(this.temperature() > this.maximumTemperature())
+    this._temperature = 25;
 };
 
 Thermostat.prototype.usage = function() {
