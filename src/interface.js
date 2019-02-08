@@ -30,10 +30,13 @@ $(document).ready(function() {
         updatePowerSaving();
     });
 
+
+
 });
 
 function updateTemperature() {
     $('#temperature').text(thermostat.temperature());
+    $('#temperature').attr('class', thermostat.usage());
 }
 
 function updatePowerSaving() {
