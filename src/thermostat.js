@@ -18,7 +18,7 @@ Thermostat.prototype.temperature = function(){
   return this._temperature;
 };
 
-Thermostat.prototype.up = function(temp){
+Thermostat.prototype.up = function(temp = 1){
   let newTemp = this._temperature + temp;
 
   if(newTemp >= this.maximumTemperature()){
@@ -28,7 +28,7 @@ Thermostat.prototype.up = function(temp){
   }
 };
 
-Thermostat.prototype.down = function(temp){
+Thermostat.prototype.down = function(temp = 1){
   if(this._temperature - temp < this._minimumTemp){
     this._temperature = this._minimumTemp;
   } else{
