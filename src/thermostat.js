@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 function Thermostat(){
   this._temperature = 20;
   this._minimumTemp = 10;
@@ -49,3 +51,4 @@ Thermostat.prototype.usage = function() {
     return 'high-usage'
   }
 };
+
